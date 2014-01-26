@@ -3,12 +3,20 @@
   <h2><%= @brewery.name %></h2>
 	<em>Established in <%= @brewery.year %></em>
 
-<p><strong>Number of beers:</strong><%= @brewery.beers.count %></p>
+<p><strong>Number of beers:</strong><%=  @brewery.beers.count %></p>
 
 <strong>Beers:</strong><br/>
  <% @brewery.beers.each do |beer| %>
    <%= link_to beer.name, beer %><br/>
  <% end %>
+
+<% if @brewery.ratings.empty? %>
+This brewery does not have ratings!
+<% else %>
+Has <%= pluralize(@brewery.ratings.count, 'rating')%>.
+ <br/>Average rating:
+ <%= @brewery.average_rating %>
+<% end %>
 
 <br/>
 
