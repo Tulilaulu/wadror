@@ -14,4 +14,11 @@
 .navibar {
     padding: 10px;
     background: #EFEFEF;
+    border:1px dotted #AAAAAA;
+}
+#user{
+	float:right;
+	line-height:13px;
+	margin:0;
+	padding-right:15px;
 }
