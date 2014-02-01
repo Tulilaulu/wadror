@@ -9,7 +9,7 @@
 <%else%>
 <ul>Is a member of: 
  <% @user.beer_clubs.each do |club| %>
-   <li> <%= link_to beer_club.name, beer_club %></li>
+   <li> <%= link_to club.name, club %></li>
  <% end %>
 </ul>
 <% end %>
@@ -23,8 +23,15 @@ This user has made <%= pluralize(@user.ratings.count, 'rating')%>.
 <% end %>
 
  <% @user.ratings.each do |rating| %>
-   <li> <%= rating %> <%= link_to 'delete', rating_path(rating.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
- <% end %>
+   <li> <%= rating %> 
+<% if @user == current_user %>
+            <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?' } %> 
+        <% end %></li> 
+<% end %>
 <br/>
+<% if current_user == @user %> 
 <%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+<% end %>
 <%= link_to 'Back', users_path %>
+
