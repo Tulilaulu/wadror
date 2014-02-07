@@ -20,8 +20,15 @@ This user hasn't rated any beers!
 This user has made <%= pluralize(@user.ratings.count, 'rating')%>.
  <br/>Average rating:
  <%= @user.average_rating %>
+<br/>Favorite beer:
+<%= @user.favorite_beer %>
+<br/>Favorite brewery:
+<%= @user.favorite_brewery %>
+<br/>Favorite style:
+<%= @user.favorite_style %>
 <% end %>
 
+<br/>Ratings:<br/>
  <% @user.ratings.each do |rating| %>
    <li> <%= rating %> 
 <% if @user == current_user %>

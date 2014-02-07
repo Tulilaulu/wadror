@@ -7,4 +7,7 @@ l = lambda{||Time.now.year}
  validates :name, presence: true
 	has_many :beers, dependent: :destroy
 	has_many :ratings, through: :beers
+ def to_s
+	return self.name	
+ end
 end
