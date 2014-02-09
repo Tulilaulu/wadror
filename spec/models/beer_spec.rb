@@ -1,5 +1,15 @@
 require 'spec_helper'
 
+BeerClub
+BeerClubsController
+Brewery
+BreweriesController
+Membership
+MembershipsController
+Rating
+RatingsController
+
+
 describe Beer do
   it "is saved when it has a name and a style" do
     beer = Beer.create name:"Kalja", style:"Lager"

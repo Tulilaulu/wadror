@@ -1,2 +1,0 @@
-Deployed at http://agile-beach-7920.herokuapp.com/
-
