@@ -65,3 +65,6 @@ group :test do
   gem 'launchy'
 end
 gem 'simplecov', require: false
+gem 'httparty'
+gem 'webmock'
+gem "rails-settings-cached", "0.3.1"
