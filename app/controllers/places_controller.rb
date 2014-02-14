@@ -10,4 +10,17 @@ class PlacesController < ApplicationController
       render :index
     end
   end
-end
+
+  def show
+    api_key = "b80e958596cc0da9c1ec7ff18bc106aa"
+    url = "http://beermapping.com/webservice/locquery/#{api_key}/"
+    response = HTTParty.get "#{url}#{params[:id]}"
+    place = Place.new(response.parsed_response["bmp_locations"]["location"])
+
+    if place.is_a?(Hash) and place['id'].nil?
+      redirect_to places_path, :notice => "Not found"
+    else
+      @place = place
+      end
+    end
+  end
